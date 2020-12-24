@@ -49,24 +49,10 @@
   height: 100%;
   position: relative;
 }
-
-/* .images__wrapper {
-  width: 65%;
-  min-height: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 1rem;
-  position: absolute;
-  top: -6rem;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-color: red;
-} */
-
 .images__wrapper {
   width: 55%;
   margin: auto;
+  margin-top: -70px;
   -webkit-column-count: 3;
   -webkit-column-gap:   10px;
   -moz-column-count:    3;

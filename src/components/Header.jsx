@@ -12,6 +12,7 @@ const Header = ({ handleSearch = () => null }) => {
           type='text'
           className='search__input'
           placeholder='Search for photo'
+          onKeyDown={handleSearch}
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
