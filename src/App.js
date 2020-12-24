@@ -12,8 +12,8 @@ function App() {
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [errorMessge, setErrorMessage] = useState('');
+  // const [loading, setLoading] = useState(false);
+  // const [errorMessge, setErrorMessage] = useState('');
 
   const debouncedSearchTerm = useDebounce(searchKeyWord, 500);
 
@@ -28,14 +28,14 @@ function App() {
 
   const handleSearch = useCallback(async () => {
     try {
-      setLoading(true);
-      setErrorMessage('');
+      // setLoading(true);
+      // setErrorMessage('');
       const newPhotos = await axios.get(`?query=${debouncedSearchTerm}`);
       setPhotos(newPhotos.data);
     } catch (error) {
-      setErrorMessage('an error occured');
+      // setErrorMessage('an error occured');
     }
-    setLoading(false);
+    // setLoading(false);
   }, [debouncedSearchTerm]);
 
   useEffect(() => {
