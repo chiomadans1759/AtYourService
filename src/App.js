@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Modal from './components/Modal';
 import ImageCard from './components/ImageCard';
 import ImageModal from './components/ImageModal';
+import Loader from './components/Loader';
 import Header from './components/Header';
 import useDebounce from './components/hooks/Debounce';
 import axios from './utils/axios';
@@ -12,8 +13,7 @@ function App() {
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState({});
-  // const [loading, setLoading] = useState(false);
-  // const [errorMessge, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const debouncedSearchTerm = useDebounce(searchKeyWord, 500);
 
@@ -28,14 +28,12 @@ function App() {
 
   const handleSearch = useCallback(async () => {
     try {
-      // setLoading(true);
-      // setErrorMessage('');
+      setLoading(true);
       const newPhotos = await axios.get(`?query=${debouncedSearchTerm}`);
       setPhotos(newPhotos.data);
     } catch (error) {
-      // setErrorMessage('an error occured');
     }
-    // setLoading(false);
+    setLoading(false);
   }, [debouncedSearchTerm]);
 
   useEffect(() => {
@@ -51,10 +49,17 @@ function App() {
   return (
     <>
       <div className='app'>
-        <Header handleSearch={setSearchKeyWord} />
+        <Header handleSearch={setSearchKeyWord} onKeyDown={handleSearch}/>
         <div className='images__container'>
           <div className='images__wrapper'>
-            {photos.map((image) => (
+            {loading ?
+            <>
+              {[300,280,400,400,500,300].map((skimmer) => {
+                  return (<Loader height={skimmer}/>)
+                })}
+            </>
+            :
+            photos.map((image) => (
               <ImageCard
                 key={image.urls.regular}
                 image={image.urls.regular}

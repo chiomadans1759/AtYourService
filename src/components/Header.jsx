@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchIcon from '../Assets/Search_Icon.png';
 
-const Header = ({ handleSearch = () => null }) => {
+const Header = ({ handleSearch = () => null, onKeyDown }) => {
   return (
     <header className='app__header'>
       <div className='search__container'>
@@ -12,7 +12,7 @@ const Header = ({ handleSearch = () => null }) => {
           type='text'
           className='search__input'
           placeholder='Search for photo'
-          onKeyDown={handleSearch}
+          onKeyDown={onKeyDown}
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>

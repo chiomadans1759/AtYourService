@@ -4,16 +4,14 @@
   overflow-y: scroll;
   margin: 0 auto;
 }
-
 .app__header {
   width: 100%;
   height: 20rem;
-  background-color: #e6eae7;
+  background-color: #bccedf;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .search__container {
   width: 70%;
   height: 2rem;
@@ -22,17 +20,14 @@
   border-radius: 7px;
   background-color: #ffffff;
 }
-
 .search__image__container {
   width: 2rem;
   height: 100%;
 }
-
 .search__image {
   height: 100%;
   width: 100%;
 }
-
 .search__input {
   color: #5d5d5d;
   font-size: 1.2rem;
@@ -43,36 +38,50 @@
   border: none;
   outline: none;
 }
-
 .images__container {
   width: 100%;
-  height: 100%;
+  height: 50vh;
   position: relative;
 }
 .images__wrapper {
   width: 55%;
+  min-height: 100vh;
   margin: auto;
   margin-top: -70px;
   -webkit-column-count: 3;
-  -webkit-column-gap:   10px;
   -moz-column-count:    3;
-  -moz-column-gap:      10px;
   column-count:         3;
-  column-gap:           10px; 
-  /* min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  position: absolute;
-  top: -6rem;
-  left: 50%;
-  transform: translate(-50%, 0); */
-  /* background-color: red; */
+  -moz-column-gap:      32px;
+  -webkit-column-gap:   32px;
+  column-gap:           32px;
 }
-
+.loader {
+  background: #f8f8f8;
+  margin-bottom: 32px;
+  display: flex;
+  padding: 24px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
+}
+.loader p,.loader b {
+  height: 10px;
+  background: #ccc;
+} 
+.loader p {
+  width: 100px;
+}
+.loader b {
+  width: 70px;
+}
 .image__card {
+  margin-bottom: 32px;
   width: 100% !important;
-  height: auto !important;
+  height: auto;
   border-radius: 7px;
   position: relative;
   overflow: hidden;
@@ -84,17 +93,14 @@
   position: relative;
   overflow: hidden;
 }
-
 .photo {
   width: 100%;
   min-height: auto;
   object-fit: cover;
   cursor: pointer;
 }
-
 .details,
 .modal__card__details {
-  /* height: 3rem; */
   padding-left: 2rem;
   padding-bottom: 1.5rem;
   position: absolute;
@@ -103,19 +109,10 @@
   right: 0;
   background: transparent;
 }
-
 .modal__card__details {
   height: 3rem;
   background-color: #ffffff;
 }
-
-/* .modal__card {
-  width: 50%;
-  height: 30rem;
-  border-radius: 8px;
-  position: relative;
-} */
-
 .name,
 .location {
   color: #dfd5d5;
@@ -123,15 +120,12 @@
   font-weight: normal;
   margin: 0.3rem 0;
 }
-
 .name__modal {
   color: #000000;
 }
-
 .location__modal {
   color: gray;
 }
-
 .modal_container {
   display: flex;
   width: 100%;
